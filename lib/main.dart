@@ -14,7 +14,7 @@ class TodoCalendarApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Календарь задач',
+      title: 'Sdelat',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: const Color(0xFF4F46E5)),
@@ -229,7 +229,7 @@ class _TodoCalendarPageState extends State<TodoCalendarPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: const Text('Календарь задач'),
+        title: const Text('Sdelat'),
       ),
       body: SafeArea(
         child: Column(

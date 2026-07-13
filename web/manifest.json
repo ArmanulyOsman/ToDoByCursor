@@ -1,11 +1,11 @@
 {
-    "name": "apppilot_app",
-    "short_name": "apppilot_app",
+    "name": "Sdelat",
+    "short_name": "Sdelat",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
     "theme_color": "#0175C2",
-    "description": "A new Flutter project.",
+    "description": "Local calendar todo app.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

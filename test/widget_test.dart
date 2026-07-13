@@ -12,7 +12,7 @@ void main() {
     await tester.pumpWidget(const TodoCalendarApp());
     await tester.pumpAndSettle();
 
-    expect(find.text('Календарь задач'), findsWidgets);
+    expect(find.text('Sdelat'), findsWidgets);
     expect(find.text('На этот день задач пока нет'), findsOneWidget);
 
     await tester.enterText(find.byType(EditableText), 'Купить продукты');
