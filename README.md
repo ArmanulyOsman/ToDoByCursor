@@ -1,6 +1,6 @@
-# apppilot_app
+# Sdelat
 
-A new Flutter project.
+Local calendar todo app.
 
 ## Getting Started
 
