@@ -50,8 +50,7 @@ class TaskController extends ChangeNotifier {
 
   int get pendingCount => _tasks.length - completedCount;
 
-  double get progress =>
-      _tasks.isEmpty ? 0 : completedCount / _tasks.length;
+  double get progress => _tasks.isEmpty ? 0 : completedCount / _tasks.length;
 
   Future<void> load() async {
     isLoading = true;

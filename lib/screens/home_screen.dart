@@ -40,10 +40,8 @@ class _HomeScreenState extends State<HomeScreen> {
       isScrollControlled: true,
       useSafeArea: true,
       backgroundColor: Colors.transparent,
-      builder: (context) => TaskEditorSheet(
-        controller: _controller,
-        task: task,
-      ),
+      builder: (context) =>
+          TaskEditorSheet(controller: _controller, task: task),
     );
   }
 
@@ -93,9 +91,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   SliverPadding(
                     padding: const EdgeInsets.fromLTRB(20, 20, 20, 0),
                     sliver: SliverToBoxAdapter(
-                      child: _Header(
-                        cloudSyncEnabled: widget.cloudSyncEnabled,
-                      ),
+                      child: _Header(cloudSyncEnabled: widget.cloudSyncEnabled),
                     ),
                   ),
                   SliverPadding(
@@ -136,8 +132,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       padding: const EdgeInsets.fromLTRB(20, 16, 20, 110),
                       sliver: SliverList.separated(
                         itemCount: _controller.visibleTasks.length,
-                        separatorBuilder: (_, _) =>
-                            const SizedBox(height: 10),
+                        separatorBuilder: (_, _) => const SizedBox(height: 10),
                         itemBuilder: (context, index) {
                           final task = _controller.visibleTasks[index];
                           return _TaskCard(
@@ -223,9 +218,7 @@ class _Header extends StatelessWidget {
           child: Container(
             padding: const EdgeInsets.all(11),
             decoration: BoxDecoration(
-              color: cloudSyncEnabled
-                  ? const Color(0xFFE8F7EF)
-                  : Colors.white,
+              color: cloudSyncEnabled ? const Color(0xFFE8F7EF) : Colors.white,
               borderRadius: BorderRadius.circular(14),
             ),
             child: Icon(
@@ -614,9 +607,9 @@ class _EmptyState extends StatelessWidget {
           Text(
             completed ? 'Пока ничего не выполнено' : 'Здесь пока пусто',
             textAlign: TextAlign.center,
-            style: Theme.of(context).textTheme.titleMedium?.copyWith(
-              fontWeight: FontWeight.w700,
-            ),
+            style: Theme.of(
+              context,
+            ).textTheme.titleMedium?.copyWith(fontWeight: FontWeight.w700),
           ),
           const SizedBox(height: 7),
           Text(
@@ -624,10 +617,7 @@ class _EmptyState extends StatelessWidget {
                 ? 'Завершённые задачи появятся в этом разделе'
                 : 'Добавьте задачу и двигайтесь к цели шаг за шагом',
             textAlign: TextAlign.center,
-            style: const TextStyle(
-              color: Color(0xFF858897),
-              height: 1.4,
-            ),
+            style: const TextStyle(color: Color(0xFF858897), height: 1.4),
           ),
         ],
       ),
@@ -655,10 +645,7 @@ class _ErrorBanner extends StatelessWidget {
         padding: const EdgeInsets.fromLTRB(14, 8, 6, 8),
         child: Row(
           children: [
-            const Icon(
-              Icons.error_outline_rounded,
-              color: Color(0xFFE34D59),
-            ),
+            const Icon(Icons.error_outline_rounded, color: Color(0xFFE34D59)),
             const SizedBox(width: 9),
             Expanded(child: Text(message)),
             TextButton(onPressed: onRetry, child: const Text('Повторить')),
@@ -674,11 +661,7 @@ class _ErrorBanner extends StatelessWidget {
 }
 
 class TaskEditorSheet extends StatefulWidget {
-  const TaskEditorSheet({
-    super.key,
-    required this.controller,
-    this.task,
-  });
+  const TaskEditorSheet({super.key, required this.controller, this.task});
 
   final TaskController controller;
   final TaskItem? task;
@@ -825,9 +808,9 @@ class _TaskEditorSheetState extends State<TaskEditorSheet> {
               const SizedBox(height: 18),
               Text(
                 'Дедлайн',
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 8),
               Row(
@@ -857,9 +840,9 @@ class _TaskEditorSheetState extends State<TaskEditorSheet> {
               const SizedBox(height: 18),
               Text(
                 'Приоритет',
-                style: Theme.of(context).textTheme.labelLarge?.copyWith(
-                  fontWeight: FontWeight.w700,
-                ),
+                style: Theme.of(
+                  context,
+                ).textTheme.labelLarge?.copyWith(fontWeight: FontWeight.w700),
               ),
               const SizedBox(height: 8),
               SegmentedButton<TaskPriority>(

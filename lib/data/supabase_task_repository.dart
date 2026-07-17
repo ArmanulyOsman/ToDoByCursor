@@ -30,10 +30,6 @@ class SupabaseTaskRepository implements TaskRepository {
 
   @override
   Future<void> deleteTask(String id) async {
-    await _client
-        .from('tasks')
-        .delete()
-        .eq('id', id)
-        .eq('user_id', _userId);
+    await _client.from('tasks').delete().eq('id', id).eq('user_id', _userId);
   }
 }

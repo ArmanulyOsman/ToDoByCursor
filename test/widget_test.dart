@@ -5,9 +5,7 @@ import 'package:flutter_test/flutter_test.dart';
 
 void main() {
   testWidgets('пользователь добавляет и завершает задачу', (tester) async {
-    await tester.pumpWidget(
-      TodoApp(repository: InMemoryTaskRepository()),
-    );
+    await tester.pumpWidget(TodoApp(repository: InMemoryTaskRepository()));
     await tester.pumpAndSettle();
 
     expect(find.text('Мои задачи'), findsOneWidget);

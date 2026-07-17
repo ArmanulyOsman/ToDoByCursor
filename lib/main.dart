@@ -30,8 +30,7 @@ Future<_TaskSource> _createTaskSource() async {
     await Supabase.initialize(url: supabaseUrl, anonKey: supabaseAnonKey);
     final client = Supabase.instance.client;
     final user =
-        client.auth.currentUser ??
-        (await client.auth.signInAnonymously()).user;
+        client.auth.currentUser ?? (await client.auth.signInAnonymously()).user;
     if (user != null) {
       return _TaskSource(
         SupabaseTaskRepository(client: client, userId: user.id),
