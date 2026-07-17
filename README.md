@@ -1,16 +1,46 @@
-# apppilot_app
+# Мои задачи
 
-A new Flutter project.
+Flutter-планировщик для личных дел: дедлайны, приоритеты, фильтры и
+отслеживание прогресса. Без конфигурации приложение хранит данные локально.
+При наличии ключей автоматически включается синхронизация с Supabase.
 
-## Getting Started
+## Возможности
 
-This project is a starting point for a Flutter application.
+- создание, редактирование, завершение и удаление задач;
+- описание, дедлайн и три уровня приоритета;
+- разделы «Активные», «Сегодня», «Предстоящие» и «Готово»;
+- индикатор общего прогресса и отметка просроченных задач;
+- локальный офлайн-режим и защищённая синхронизация Supabase.
 
-A few resources to get you started if this is your first Flutter project:
+## Запуск
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter pub get
+flutter run
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+## Supabase
+
+1. Создайте проект Supabase.
+2. Выполните миграцию
+   `supabase/migrations/20260717000000_create_tasks.sql`.
+3. В Supabase Dashboard включите Anonymous Sign-Ins:
+   **Authentication → Providers → Anonymous**.
+4. Запустите приложение с ключами проекта:
+
+```bash
+flutter run \
+  --dart-define=SUPABASE_URL=https://YOUR_PROJECT.supabase.co \
+  --dart-define=SUPABASE_ANON_KEY=YOUR_ANON_KEY
+```
+
+RLS-политика ограничивает доступ пользователя только его собственными
+задачами. Если ключи не переданы или сервис недоступен при запуске,
+используется локальное хранилище устройства.
+
+## Проверка
+
+```bash
+flutter analyze
+flutter test
+```
