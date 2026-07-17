@@ -24,7 +24,7 @@ Future<_TaskSource> _createTaskSource() async {
     'SUPABASE_PUBLISHABLE_KEY',
   );
   const supabaseAnonKey = String.fromEnvironment('SUPABASE_ANON_KEY');
-  const supabaseKey = supabasePublishableKey.isNotEmpty
+  final supabaseKey = supabasePublishableKey.isNotEmpty
       ? supabasePublishableKey
       : supabaseAnonKey;
 
