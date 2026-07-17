@@ -31,12 +31,14 @@ flutter run
 ```bash
 flutter run \
   --dart-define=SUPABASE_URL=https://YOUR_PROJECT.supabase.co \
-  --dart-define=SUPABASE_ANON_KEY=YOUR_ANON_KEY
+  --dart-define=SUPABASE_PUBLISHABLE_KEY=YOUR_PUBLISHABLE_KEY
 ```
 
 RLS-политика ограничивает доступ пользователя только его собственными
 задачами. Если ключи не переданы или сервис недоступен при запуске,
 используется локальное хранилище устройства.
+
+Устаревающий `SUPABASE_ANON_KEY` также поддерживается для старых проектов.
 
 ## Проверка
 

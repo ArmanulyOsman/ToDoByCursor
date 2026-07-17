@@ -20,14 +20,20 @@ Future<void> main() async {
 
 Future<_TaskSource> _createTaskSource() async {
   const supabaseUrl = String.fromEnvironment('SUPABASE_URL');
+  const supabasePublishableKey = String.fromEnvironment(
+    'SUPABASE_PUBLISHABLE_KEY',
+  );
   const supabaseAnonKey = String.fromEnvironment('SUPABASE_ANON_KEY');
+  const supabaseKey = supabasePublishableKey.isNotEmpty
+      ? supabasePublishableKey
+      : supabaseAnonKey;
 
-  if (supabaseUrl.isEmpty || supabaseAnonKey.isEmpty) {
+  if (supabaseUrl.isEmpty || supabaseKey.isEmpty) {
     return _TaskSource(LocalTaskRepository(), false);
   }
 
   try {
-    await Supabase.initialize(url: supabaseUrl, anonKey: supabaseAnonKey);
+    await Supabase.initialize(url: supabaseUrl, publishableKey: supabaseKey);
     final client = Supabase.instance.client;
     final user =
         client.auth.currentUser ?? (await client.auth.signInAnonymously()).user;
